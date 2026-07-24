@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Junubia 64 Organization | Empowering Communities in South Sudan</title>
-    <meta name="description" content="Junubia 64 Organization works to strengthen communities through sustainable development, education, advocacy, and humanitarian initiatives across South Sudan.">
-    <meta name="keywords" content="Junubia 64, South Sudan NGO, humanitarian, community development, education, agriculture, youth empowerment, women empowerment, peacebuilding">
+    <meta name="description" content="Junubia 64 Organization works with communities across South Sudan to promote empowerment, development, and meaningful social impact.">
+    <meta name="keywords" content="Junubia 64, South Sudan NGO, humanitarian, community development, education, youth empowerment, advocacy, Juba">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -50,20 +50,20 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             background-color: #ffffff;
+            overflow-x: hidden;
         }
 
         .font-display {
             font-family: 'Playfair Display', Georgia, serif;
         }
 
-        /* Enhanced Glass Effects */
+        /* Glass Effects */
         .glass {
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.5);
         }
-
         .glass-dark {
             background: rgba(6, 40, 61, 0.7);
             backdrop-filter: blur(20px);
@@ -78,17 +78,25 @@
             transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
             will-change: transform, opacity;
         }
-
         .reveal.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        .reveal-delay-1 { transition-delay: 0.1s; }
-        .reveal-delay-2 { transition-delay: 0.2s; }
-        .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
-        .reveal-delay-5 { transition-delay: 0.5s; }
+        .reveal-delay-1 {
+            transition-delay: 0.1s;
+        }
+        .reveal-delay-2 {
+            transition-delay: 0.2s;
+        }
+        .reveal-delay-3 {
+            transition-delay: 0.3s;
+        }
+        .reveal-delay-4 {
+            transition-delay: 0.4s;
+        }
+        .reveal-delay-5 {
+            transition-delay: 0.5s;
+        }
 
         /* Image reveal clip */
         .img-reveal {
@@ -108,17 +116,11 @@
             transform: translateY(-8px);
             box-shadow: 0 30px 50px -12px rgba(6, 40, 61, 0.2);
         }
-
         .card-hover .card-img {
             transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
         .card-hover:hover .card-img {
             transform: scale(1.03);
-        }
-
-        /* Program card overlay gradient */
-        .program-overlay {
-            background: linear-gradient(0deg, rgba(6, 40, 61, 0.7) 0%, rgba(6, 40, 61, 0.1) 60%, rgba(6, 40, 61, 0) 100%);
         }
 
         /* Dropdown menu */
@@ -141,14 +143,24 @@
             animation: bounceDown 2s ease-in-out infinite;
         }
         @keyframes bounceDown {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(10px);
+            }
         }
 
         /* Floating stats */
         @keyframes floatGentle {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
         }
         .float-gentle {
             animation: floatGentle 5s ease-in-out infinite;
@@ -172,15 +184,25 @@
         }
 
         /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #06283D; border-radius: 3px; }
-
-        /* Selection */
-        ::selection { background: #D4A017; color: #06283D; }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #06283D;
+            border-radius: 3px;
+        }
+        ::selection {
+            background: #D4A017;
+            color: #06283D;
+        }
 
         /* Input focus */
-        input:focus, textarea:focus, select:focus {
+        input:focus,
+        textarea:focus,
+        select:focus {
             outline: none;
             border-color: #D4A017 !important;
             box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.2);
@@ -188,10 +210,17 @@
 
         /* Pulse donate button */
         @keyframes pulseGold {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.6); }
-            50% { box-shadow: 0 0 0 15px rgba(212, 160, 23, 0); }
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(212, 160, 23, 0.6);
+            }
+            50% {
+                box-shadow: 0 0 0 15px rgba(212, 160, 23, 0);
+            }
         }
-        .pulse-gold { animation: pulseGold 2.5s ease-in-out infinite; }
+        .pulse-gold {
+            animation: pulseGold 2.5s ease-in-out infinite;
+        }
 
         /* Mobile menu panel */
         .mobile-menu {
@@ -199,9 +228,11 @@
             transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             will-change: transform;
         }
-        .mobile-menu.open { transform: translateX(0); }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
 
-        /* Premium report card border effect */
+        /* Report card */
         .report-card {
             transition: all 0.3s ease;
             border: 1px solid rgba(0, 0, 0, 0.05);
@@ -211,7 +242,7 @@
             background-color: #fff;
         }
 
-        /* Map iframe responsiveness */
+        /* Map iframe */
         .map-container iframe {
             width: 100%;
             height: 100%;
@@ -225,9 +256,41 @@
         .impact-bg-image {
             filter: brightness(0.85);
         }
+
+        /* Infinite partner carousel */
+        @keyframes infiniteScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        .partner-carousel-track {
+            display: flex;
+            width: max-content;
+            animation: infiniteScroll 35s linear infinite;
+        }
+        .partner-carousel-track:hover {
+            animation-play-state: paused;
+        }
+        .partner-carousel-wrapper {
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right,
+                    transparent 0%,
+                    black 8%,
+                    black 92%,
+                    transparent 100%);
+            -webkit-mask-image: linear-gradient(to right,
+                    transparent 0%,
+                    black 8%,
+                    black 92%,
+                    transparent 100%);
+        }
     </style>
 </head>
-<body class="text-gray-800 antialiased overflow-x-hidden bg-white">
+<body class="text-gray-800 antialiased bg-white">
 
     <!-- ==================== TOP BAR ==================== -->
     <div class="hidden lg:block bg-navy text-white/85 text-xs tracking-wider py-2.5 px-6 z-50 relative">
@@ -266,7 +329,6 @@
                         <span class="text-white/70 text-[10px] tracking-widest uppercase">Organization</span>
                     </div>
                 </a>
-
                 <div class="hidden lg:flex items-center gap-1">
                     <a href="#" class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium transition-colors duration-300">Home</a>
                     <div class="dropdown-trigger relative">
@@ -285,13 +347,12 @@
                             Programs <i class="fa-solid fa-chevron-down text-[9px] mt-0.5"></i>
                         </button>
                         <div class="dropdown-menu absolute top-full left-0 mt-1 bg-white rounded-xl py-2 min-w-[250px] border border-gray-100">
-                            <a href="#programs" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-cream hover:text-navy transition-colors">Education</a>
-                            <a href="#programs" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-cream hover:text-navy transition-colors">Agriculture & Livelihood</a>
-                            <a href="#programs" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-cream hover:text-navy transition-colors">Youth Empowerment</a>
-                            <a href="#programs" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-cream hover:text-navy transition-colors">Women Empowerment</a>
-                            <a href="#programs" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-cream hover:text-navy transition-colors">Peacebuilding & Advocacy</a>
                             <a href="#programs" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-cream hover:text-navy transition-colors">Community Development</a>
+                            <a href="#programs" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-cream hover:text-navy transition-colors">Youth Empowerment</a>
+                            <a href="#programs" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-cream hover:text-navy transition-colors">Education Support</a>
                             <a href="#programs" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-cream hover:text-navy transition-colors">Humanitarian Assistance</a>
+                            <a href="#programs" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-cream hover:text-navy transition-colors">Social Development</a>
+                            <a href="#programs" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-cream hover:text-navy transition-colors">Advocacy & Community Engagement</a>
                         </div>
                     </div>
                     <a href="#impact" class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium transition-colors duration-300">Impact</a>
@@ -309,7 +370,7 @@
                             <a href="#reports" class="block px-4 py-2.5 text-sm text-gray-700 hover:bg-cream hover:text-navy transition-colors">Publications</a>
                         </div>
                     </div>
-                   <a href="#career" class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium transition-colors duration-300">Careers</a>
+                    <a href="#careers" class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium transition-colors duration-300">Careers</a>
                     <a href="#contact" class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium transition-colors duration-300">Contact</a>
                 </div>
                 <div class="hidden lg:block">
@@ -334,7 +395,7 @@
             <a href="#partners" class="text-white text-lg py-3 border-b border-white/10 font-medium">Partners</a>
             <a href="#" class="text-white text-lg py-3 border-b border-white/10 font-medium" onclick="event.preventDefault()">Team</a>
             <a href="#reports" class="text-white text-lg py-3 border-b border-white/10 font-medium">Reports</a>
-                   <a href="#careers" class="text-white text-lg py-3 border-b border-white/10 font-medium">Careers</a>
+            <a href="#careers" class="text-white text-lg py-3 border-b border-white/10 font-medium">Careers</a>
             <a href="#contact" class="text-white text-lg py-3 border-b border-white/10 font-medium">Contact</a>
             <a href="#donate" class="bg-gold text-navy font-semibold px-6 py-3 rounded-full text-center mt-6 text-lg">Donate Now</a>
         </div>
@@ -362,8 +423,8 @@
                         <span class="text-gold italic font-medium">Creating Lasting Change.</span>
                     </h1>
                     <p class="reveal reveal-delay-2 text-white/80 text-base sm:text-lg max-w-lg leading-relaxed font-light">
-                        Junubia 64 Organization works to strengthen communities through sustainable development,
-                        education, advocacy, and humanitarian initiatives across South Sudan.
+                        Junubia 64 Organization works with communities across South Sudan to promote empowerment,
+                        development, and meaningful social impact.
                     </p>
                     <div class="reveal reveal-delay-3 flex flex-wrap gap-4">
                         <a href="#about" class="bg-gold text-navy font-semibold px-8 py-3.5 rounded-full text-sm lg:text-base hover:bg-gold-light transition-all duration-300 shadow-xl shadow-gold/30 inline-flex items-center gap-2">
@@ -411,10 +472,14 @@
                         Why Junubia 64 <span class="text-forest italic">Exists</span>
                     </h2>
                     <p class="text-gray-600 text-lg leading-relaxed">
-                        We believe every community in South Sudan deserves hope, opportunity, and the tools to build a self‑sustaining future. Founded on the principles of dignity and resilience, Junubia 64 bridges the gap between immediate humanitarian needs and long‑term development.
+                        We believe every community in South Sudan deserves hope, opportunity, and the tools to build a
+                        self‑sustaining future. Founded on the principles of dignity and resilience, Junubia 64 bridges
+                        the gap between immediate humanitarian needs and long‑term development.
                     </p>
                     <p class="text-gray-600 text-lg leading-relaxed">
-                        Our work is rooted in the conviction that local leaders, women, and youth are the true architects of change. We exist to amplify their voices, strengthen local systems, and walk alongside communities as they transform their own lives.
+                        Our work is rooted in the conviction that local leaders, women, and youth are the true architects
+                        of change. We exist to amplify their voices, strengthen local systems, and walk alongside
+                        communities as they transform their own lives.
                     </p>
                     <a href="#programs" class="inline-flex items-center gap-2 bg-navy text-white font-semibold px-8 py-3.5 rounded-full hover:bg-navy-light transition-all duration-300 shadow-lg">
                         Explore Our Programs <i class="fa-solid fa-arrow-right text-xs"></i>
@@ -455,8 +520,14 @@
                         </h2>
                     </div>
                     <p class="reveal reveal-delay-1 text-gray-600 text-lg leading-relaxed">
-                        Junubia 64 Organization is committed to creating positive change by supporting vulnerable
-                        communities, promoting development, and empowering people across South Sudan.
+                        Junubia 64 Organization is a South Sudanese non-governmental and non-profit organization based in
+                        Juba, South Sudan. The organization is dedicated to supporting communities, promoting positive
+                        social change, and contributing to sustainable development initiatives that improve the lives of
+                        people across South Sudan.
+                    </p>
+                    <p class="reveal reveal-delay-1 text-gray-600 text-lg leading-relaxed">
+                        Through community-focused programs, advocacy, and humanitarian efforts, we work to empower
+                        individuals, strengthen communities, and create opportunities for a better future.
                     </p>
                     <div class="grid sm:grid-cols-3 gap-4 reveal reveal-delay-2">
                         <div class="bg-cream rounded-xl p-5 border border-gold/10 hover:border-gold/30 transition-all duration-300">
@@ -464,21 +535,21 @@
                                 <i class="fa-solid fa-bullseye text-gold"></i>
                             </div>
                             <h4 class="font-semibold text-navy text-sm mb-1">Mission</h4>
-                            <p class="text-gray-500 text-xs leading-relaxed">Strengthen communities through sustainable development and empowerment.</p>
+                            <p class="text-gray-500 text-xs leading-relaxed">To support and empower communities through meaningful programs and advocacy.</p>
                         </div>
                         <div class="bg-cream rounded-xl p-5 border border-gold/10 hover:border-gold/30 transition-all duration-300">
                             <div class="w-10 h-10 bg-forest/15 rounded-lg flex items-center justify-center mb-3">
                                 <i class="fa-solid fa-eye text-forest"></i>
                             </div>
                             <h4 class="font-semibold text-navy text-sm mb-1">Vision</h4>
-                            <p class="text-gray-500 text-xs leading-relaxed">A thriving, peaceful South Sudan where all communities flourish.</p>
+                            <p class="text-gray-500 text-xs leading-relaxed">A peaceful, empowered, and thriving South Sudan with sustainable development.</p>
                         </div>
                         <div class="bg-cream rounded-xl p-5 border border-gold/10 hover:border-gold/30 transition-all duration-300">
                             <div class="w-10 h-10 bg-navy/10 rounded-lg flex items-center justify-center mb-3">
                                 <i class="fa-solid fa-hand-holding-heart text-navy"></i>
                             </div>
                             <h4 class="font-semibold text-navy text-sm mb-1">Values</h4>
-                            <p class="text-gray-500 text-xs leading-relaxed">Integrity, compassion, transparency, and community-driven action.</p>
+                            <p class="text-gray-500 text-xs leading-relaxed">Integrity, transparency, inclusion, collaboration, and compassion.</p>
                         </div>
                     </div>
                 </div>
@@ -490,7 +561,7 @@
     <section id="programs" class="py-20 lg:py-32 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-16 reveal">
-                <span class="text-gold text-sm tracking-[0.2em] uppercase font-semibold">What We Do</span>
+                <span class="text-gold text-sm tracking-[0.2em] uppercase font-semibold">Areas of Focus</span>
                 <h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-3 leading-tight">
                     Our <span class="text-forest italic">Programs</span>
                 </h2>
@@ -501,29 +572,16 @@
                     <div class="relative h-52 overflow-hidden bg-gradient-to-br from-navy to-navy-light">
                         <div class="absolute inset-0 bg-black/20"></div>
                         <div class="absolute bottom-4 left-4 text-white z-10">
-                            <div class="w-9 h-9 bg-gold rounded-lg flex items-center justify-center mb-2 shadow-lg"><i class="fa-solid fa-graduation-cap text-navy text-sm"></i></div>
-                            <h3 class="font-display font-semibold text-lg">Education</h3>
+                            <div class="w-9 h-9 bg-gold rounded-lg flex items-center justify-center mb-2 shadow-lg"><i class="fa-solid fa-people-group text-navy text-sm"></i></div>
+                            <h3 class="font-display font-semibold text-lg">Community Development</h3>
                         </div>
                     </div>
                     <div class="p-5">
-                        <p class="text-gray-500 text-sm leading-relaxed">Providing access to quality education and learning resources for children and youth.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed">Strengthening communities through participatory development initiatives and capacity building.</p>
                         <a href="#" class="inline-flex items-center gap-1.5 text-forest font-semibold text-xs mt-3 hover:text-gold transition-colors">Explore Program <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                     </div>
                 </div>
                 <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md group cursor-pointer reveal reveal-delay-1">
-                    <div class="relative h-52 overflow-hidden bg-gradient-to-br from-forest to-forest-light">
-                        <div class="absolute inset-0 bg-black/20"></div>
-                        <div class="absolute bottom-4 left-4 text-white z-10">
-                            <div class="w-9 h-9 bg-gold rounded-lg flex items-center justify-center mb-2 shadow-lg"><i class="fa-solid fa-wheat-awn text-navy text-sm"></i></div>
-                            <h3 class="font-display font-semibold text-lg">Agriculture</h3>
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <p class="text-gray-500 text-sm leading-relaxed">Sustainable farming practices and livelihood programs for food security.</p>
-                        <a href="#" class="inline-flex items-center gap-1.5 text-forest font-semibold text-xs mt-3 hover:text-gold transition-colors">Explore Program <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
-                    </div>
-                </div>
-                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md group cursor-pointer reveal reveal-delay-2">
                     <div class="relative h-52 overflow-hidden bg-gradient-to-br from-amber-600 to-gold">
                         <div class="absolute inset-0 bg-black/20"></div>
                         <div class="absolute bottom-4 left-4 text-white z-10">
@@ -532,50 +590,24 @@
                         </div>
                     </div>
                     <div class="p-5">
-                        <p class="text-gray-500 text-sm leading-relaxed">Skills training and leadership development for the next generation.</p>
-                        <a href="#" class="inline-flex items-center gap-1.5 text-forest font-semibold text-xs mt-3 hover:text-gold transition-colors">Explore Program <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
-                    </div>
-                </div>
-                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md group cursor-pointer reveal">
-                    <div class="relative h-52 overflow-hidden bg-gradient-to-br from-purple-800 to-purple-600">
-                        <div class="absolute inset-0 bg-black/20"></div>
-                        <div class="absolute bottom-4 left-4 text-white z-10">
-                            <div class="w-9 h-9 bg-gold rounded-lg flex items-center justify-center mb-2 shadow-lg"><i class="fa-solid fa-female text-navy text-sm"></i></div>
-                            <h3 class="font-display font-semibold text-lg">Women Empowerment</h3>
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <p class="text-gray-500 text-sm leading-relaxed">Economic and social empowerment programs for women across communities.</p>
-                        <a href="#" class="inline-flex items-center gap-1.5 text-forest font-semibold text-xs mt-3 hover:text-gold transition-colors">Explore Program <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
-                    </div>
-                </div>
-                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md group cursor-pointer reveal reveal-delay-1">
-                    <div class="relative h-52 overflow-hidden bg-gradient-to-br from-blue-900 to-blue-700">
-                        <div class="absolute inset-0 bg-black/20"></div>
-                        <div class="absolute bottom-4 left-4 text-white z-10">
-                            <div class="w-9 h-9 bg-gold rounded-lg flex items-center justify-center mb-2 shadow-lg"><i class="fa-solid fa-handshake text-navy text-sm"></i></div>
-                            <h3 class="font-display font-semibold text-lg">Peacebuilding</h3>
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <p class="text-gray-500 text-sm leading-relaxed">Advocacy and conflict resolution initiatives fostering peace and unity.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed">Skills training and leadership development for the next generation of South Sudanese leaders.</p>
                         <a href="#" class="inline-flex items-center gap-1.5 text-forest font-semibold text-xs mt-3 hover:text-gold transition-colors">Explore Program <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                     </div>
                 </div>
                 <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md group cursor-pointer reveal reveal-delay-2">
-                    <div class="relative h-52 overflow-hidden bg-gradient-to-br from-teal-800 to-teal-600">
+                    <div class="relative h-52 overflow-hidden bg-gradient-to-br from-forest to-forest-light">
                         <div class="absolute inset-0 bg-black/20"></div>
                         <div class="absolute bottom-4 left-4 text-white z-10">
-                            <div class="w-9 h-9 bg-gold rounded-lg flex items-center justify-center mb-2 shadow-lg"><i class="fa-solid fa-house-chimney text-navy text-sm"></i></div>
-                            <h3 class="font-display font-semibold text-lg">Community Dev.</h3>
+                            <div class="w-9 h-9 bg-gold rounded-lg flex items-center justify-center mb-2 shadow-lg"><i class="fa-solid fa-graduation-cap text-navy text-sm"></i></div>
+                            <h3 class="font-display font-semibold text-lg">Education Support</h3>
                         </div>
                     </div>
                     <div class="p-5">
-                        <p class="text-gray-500 text-sm leading-relaxed">Infrastructure and capacity building for resilient communities.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed">Providing access to quality education and learning resources for children and youth.</p>
                         <a href="#" class="inline-flex items-center gap-1.5 text-forest font-semibold text-xs mt-3 hover:text-gold transition-colors">Explore Program <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                     </div>
                 </div>
-                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md group cursor-pointer reveal sm:col-span-2 lg:col-span-3">
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md group cursor-pointer reveal">
                     <div class="relative h-52 overflow-hidden bg-gradient-to-br from-red-800 to-red-600">
                         <div class="absolute inset-0 bg-black/20"></div>
                         <div class="absolute bottom-4 left-4 text-white z-10">
@@ -583,9 +615,35 @@
                             <h3 class="font-display font-semibold text-lg">Humanitarian Assistance</h3>
                         </div>
                     </div>
-                    <div class="p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                        <p class="text-gray-500 text-sm leading-relaxed max-w-2xl">Emergency relief and humanitarian support for communities affected by crisis and displacement.</p>
-                        <a href="#" class="inline-flex items-center gap-1.5 text-forest font-semibold text-xs hover:text-gold transition-colors flex-shrink-0">Explore Program <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                    <div class="p-5">
+                        <p class="text-gray-500 text-sm leading-relaxed">Emergency relief and humanitarian support for communities affected by crisis and displacement.</p>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-forest font-semibold text-xs mt-3 hover:text-gold transition-colors">Explore Program <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                    </div>
+                </div>
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md group cursor-pointer reveal reveal-delay-1">
+                    <div class="relative h-52 overflow-hidden bg-gradient-to-br from-teal-800 to-teal-600">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="absolute bottom-4 left-4 text-white z-10">
+                            <div class="w-9 h-9 bg-gold rounded-lg flex items-center justify-center mb-2 shadow-lg"><i class="fa-solid fa-heart-circle-check text-navy text-sm"></i></div>
+                            <h3 class="font-display font-semibold text-lg">Social Development</h3>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <p class="text-gray-500 text-sm leading-relaxed">Holistic social programs addressing health, well-being, and community resilience.</p>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-forest font-semibold text-xs mt-3 hover:text-gold transition-colors">Explore Program <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+                    </div>
+                </div>
+                <div class="card-hover bg-white rounded-2xl overflow-hidden shadow-md group cursor-pointer reveal reveal-delay-2">
+                    <div class="relative h-52 overflow-hidden bg-gradient-to-br from-blue-900 to-blue-700">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        <div class="absolute bottom-4 left-4 text-white z-10">
+                            <div class="w-9 h-9 bg-gold rounded-lg flex items-center justify-center mb-2 shadow-lg"><i class="fa-solid fa-handshake text-navy text-sm"></i></div>
+                            <h3 class="font-display font-semibold text-lg">Advocacy & Engagement</h3>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <p class="text-gray-500 text-sm leading-relaxed">Advocacy and community engagement initiatives fostering participation and positive change.</p>
+                        <a href="#" class="inline-flex items-center gap-1.5 text-forest font-semibold text-xs mt-3 hover:text-gold transition-colors">Explore Program <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
                     </div>
                 </div>
             </div>
@@ -634,31 +692,117 @@
     </section>
 
     <!-- ==================== PARTNERS SECTION ==================== -->
-    <section id="partners" class="py-20 lg:py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-16 reveal">
+    <section id="partners" class="py-20 lg:py-32 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 mb-16">
+            <div class="text-center reveal">
                 <span class="text-gold text-sm tracking-[0.2em] uppercase font-semibold">Collaboration</span>
                 <h2 class="font-display text-4xl lg:text-5xl font-bold text-navy mt-3 leading-tight">
                     Our <span class="text-forest italic">Partners</span>
                 </h2>
-                <p class="text-gray-500 mt-4 max-w-xl mx-auto">Working together with trusted organizations for sustainable impact.</p>
+                <p class="text-gray-500 mt-4 max-w-xl mx-auto">Working together with trusted organizations for sustainable impact across South Sudan.</p>
             </div>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-                <div class="reveal flex flex-col items-center justify-center p-8 bg-cream rounded-2xl hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gold/20">
-                    <div class="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mb-4"><i class="fa-solid fa-globe text-navy text-2xl"></i></div>
-                    <span class="text-sm font-semibold text-navy text-center">UN Partner Agency</span>
+        </div>
+
+        <!-- Infinite Partner Carousel -->
+        <div class="partner-carousel-wrapper reveal">
+            <div class="partner-carousel-track py-4">
+                <!-- Original 8 partner logos -->
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-globe text-navy text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">UN Partner Agency</span>
+                    </div>
                 </div>
-                <div class="reveal reveal-delay-1 flex flex-col items-center justify-center p-8 bg-cream rounded-2xl hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gold/20">
-                    <div class="w-16 h-16 bg-forest/10 rounded-full flex items-center justify-center mb-4"><i class="fa-solid fa-hand-holding-heart text-forest text-2xl"></i></div>
-                    <span class="text-sm font-semibold text-navy text-center">Global Foundation</span>
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-forest/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-hand-holding-heart text-forest text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">Global Foundation</span>
+                    </div>
                 </div>
-                <div class="reveal reveal-delay-2 flex flex-col items-center justify-center p-8 bg-cream rounded-2xl hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gold/20">
-                    <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-4"><i class="fa-solid fa-building-columns text-gold text-2xl"></i></div>
-                    <span class="text-sm font-semibold text-navy text-center">Development Bank</span>
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-building-columns text-gold text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">Development Bank</span>
+                    </div>
                 </div>
-                <div class="reveal reveal-delay-3 flex flex-col items-center justify-center p-8 bg-cream rounded-2xl hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gold/20">
-                    <div class="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mb-4"><i class="fa-solid fa-people-arrows text-navy text-2xl"></i></div>
-                    <span class="text-sm font-semibold text-navy text-center">Local CSO Network</span>
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-people-arrows text-navy text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">Local CSO Network</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-forest/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-seedling text-forest text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">Food Security Alliance</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-children text-gold text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">Child Protection Network</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-droplet text-navy text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">Water for All Initiative</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-forest/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-book-bible text-forest text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">Education First Partner</span>
+                    </div>
+                </div>
+                <!-- Duplicate for seamless infinite scroll -->
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-globe text-navy text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">UN Partner Agency</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-forest/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-hand-holding-heart text-forest text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">Global Foundation</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-building-columns text-gold text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">Development Bank</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-people-arrows text-navy text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">Local CSO Network</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-forest/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-seedling text-forest text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">Food Security Alliance</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-children text-gold text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">Child Protection Network</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-navy/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-droplet text-navy text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">Water for All Initiative</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center min-w-[200px] sm:min-w-[220px] px-6">
+                    <div class="bg-cream rounded-2xl p-6 w-full flex flex-col items-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-forest/10 rounded-full flex items-center justify-center mb-3"><i class="fa-solid fa-book-bible text-forest text-2xl"></i></div>
+                        <span class="text-sm font-semibold text-navy text-center">Education First Partner</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -742,6 +886,10 @@
                             <div><h4 class="font-semibold text-navy">Email</h4><p class="text-gray-500 text-sm">info@junubia64.org</p></div>
                         </div>
                         <div class="flex items-start gap-4">
+                            <div class="w-11 h-11 bg-forest/15 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fa-brands fa-facebook-f text-forest"></i></div>
+                            <div><h4 class="font-semibold text-navy">Facebook</h4><p class="text-gray-500 text-sm">junubia64@gmail.com</p></div>
+                        </div>
+                        <div class="flex items-start gap-4">
                             <div class="w-11 h-11 bg-navy/10 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-phone text-navy"></i></div>
                             <div><h4 class="font-semibold text-navy">Phone</h4><p class="text-gray-500 text-sm">+211 928 367 979</p></div>
                         </div>
@@ -818,7 +966,7 @@
                     </div>
                     <span class="font-display font-semibold text-xl">Junubia 64 Organization</span>
                 </div>
-                <p class="text-white/55 text-sm leading-relaxed max-w-sm">Strengthening communities through sustainable development, education, advocacy, and humanitarian initiatives across South Sudan.</p>
+                <p class="text-white/55 text-sm leading-relaxed max-w-sm">A South Sudanese non-governmental and non-profit organization dedicated to supporting communities, promoting positive social change, and contributing to sustainable development across South Sudan.</p>
                 <div class="flex gap-3 pt-2">
                     <a href="#" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-gold hover:text-navy transition-all duration-300 text-sm"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="#" class="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center hover:bg-gold hover:text-navy transition-all duration-300 text-sm"><i class="fa-brands fa-x-twitter"></i></a>
@@ -833,16 +981,17 @@
                     <li><a href="#about" class="text-white/55 text-sm hover:text-gold transition-colors">About Us</a></li>
                     <li><a href="#programs" class="text-white/55 text-sm hover:text-gold transition-colors">Programs</a></li>
                     <li><a href="#impact" class="text-white/55 text-sm hover:text-gold transition-colors">Impact</a></li>
+                    <li><a href="#careers" class="text-white/55 text-sm hover:text-gold transition-colors">Careers</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Programs</h4>
+                <h4 class="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Focus Areas</h4>
                 <ul class="space-y-2.5">
-                    <li><a href="#programs" class="text-white/55 text-sm hover:text-gold transition-colors">Education</a></li>
-                    <li><a href="#programs" class="text-white/55 text-sm hover:text-gold transition-colors">Agriculture</a></li>
+                    <li><a href="#programs" class="text-white/55 text-sm hover:text-gold transition-colors">Community Development</a></li>
                     <li><a href="#programs" class="text-white/55 text-sm hover:text-gold transition-colors">Youth Empowerment</a></li>
-                    <li><a href="#programs" class="text-white/55 text-sm hover:text-gold transition-colors">Women Empowerment</a></li>
+                    <li><a href="#programs" class="text-white/55 text-sm hover:text-gold transition-colors">Education Support</a></li>
                     <li><a href="#programs" class="text-white/55 text-sm hover:text-gold transition-colors">Humanitarian Aid</a></li>
+                    <li><a href="#programs" class="text-white/55 text-sm hover:text-gold transition-colors">Advocacy & Engagement</a></li>
                 </ul>
             </div>
             <div>
@@ -850,12 +999,13 @@
                 <ul class="space-y-2.5">
                     <li class="text-white/55 text-sm flex items-start gap-2"><i class="fa-solid fa-location-dot text-gold mt-0.5 flex-shrink-0"></i> Juba, South Sudan</li>
                     <li class="text-white/55 text-sm flex items-start gap-2"><i class="fa-solid fa-envelope text-gold mt-0.5 flex-shrink-0"></i> info@junubia64.org</li>
+                    
                     <li class="text-white/55 text-sm flex items-start gap-2"><i class="fa-solid fa-phone text-gold mt-0.5 flex-shrink-0"></i> +211 928 367 979</li>
                 </ul>
             </div>
         </div>
         <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p class="text-white/40 text-xs">&copy; 2024 Junubia 64 Organization. All rights reserved. A registered non-governmental organization in South Sudan.</p>
+            <p class="text-white/40 text-xs">&copy; 2024 Junubia 64 Organization. All rights reserved. A registered non-governmental and non-profit organization in South Sudan.</p>
             <div class="flex gap-4 text-white/40 text-xs">
                 <a href="#" class="hover:text-gold transition-colors">Privacy Policy</a>
                 <a href="#" class="hover:text-gold transition-colors">Terms of Use</a>
@@ -871,6 +1021,7 @@
         // Sticky Navigation
         const mainNav = document.getElementById('mainNav');
         const topBarHeight = 37;
+
         function updateNav() {
             const scrollY = window.scrollY;
             const isMobile = window.innerWidth < 1024;
@@ -927,6 +1078,7 @@
                     const target = parseInt(counter.getAttribute('data-target'));
                     const duration = 2000;
                     const startTime = performance.now();
+
                     function animateCounter(currentTime) {
                         const elapsed = currentTime - startTime;
                         const progress = Math.min(elapsed / duration, 1);
@@ -951,7 +1103,8 @@
                 if (target) {
                     e.preventDefault();
                     const navHeight = mainNav.offsetHeight;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset -
+                        navHeight - 20;
                     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                 }
             });
@@ -980,15 +1133,18 @@
                 btn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
                 btn.classList.add('bg-forest');
                 setTimeout(() => {
-                    btn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane text-xs"></i>';
+                    btn.innerHTML =
+                        'Send Message <i class="fa-solid fa-paper-plane text-xs"></i>';
                     btn.classList.remove('bg-forest');
                     form.reset();
                 }, 2500);
             });
         }
+
+        console.log('%c🌍 Junubia 64 Organization %c| %cOfficial Website',
+            'font-family: "Playfair Display", serif; font-size: 20px; color: #D4A017; font-weight: bold;',
+            '', 'font-family: Inter, sans-serif; font-size: 12px; color: #06283D;');
     })();
 </script>
 </body>
 </html>
-
-
