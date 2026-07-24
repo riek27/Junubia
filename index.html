@@ -152,6 +152,16 @@
             }
         }
 
+        /* Dropdown open state */
+.mobile-dropdown-menu.open {
+    max-height: 500px !important;   /* overrides inline style */
+}
+
+/* Chevron rotation */
+.mobile-dropdown-btn.open i {
+    transform: rotate(180deg);
+}
+
         /* Floating stats */
         @keyframes floatGentle {
             0%,
@@ -483,10 +493,10 @@
 
         <!-- About dropdown -->
         <div class="mobile-dropdown">
-            <button class="mobile-dropdown-btn flex items-center justify-between w-full text-white text-lg py-3 border-b border-white/10 font-medium">
+            <button class="mobile-dropdown-btn w-full flex items-center justify-between text-white text-lg py-3 border-b border-white/10 font-medium" onclick="toggleMobileDropdown(this)">
                 About <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
             </button>
-            <div class="mobile-dropdown-menu pl-4 space-y-1">
+            <div class="mobile-dropdown-menu pl-4 space-y-1" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease;">
                 <a href="#about" class="block text-white/70 text-base py-2">Our Story</a>
                 <a href="#about" class="block text-white/70 text-base py-2">Mission & Vision</a>
                 <a href="#about" class="block text-white/70 text-base py-2">Our Values</a>
@@ -496,10 +506,10 @@
 
         <!-- Programs dropdown -->
         <div class="mobile-dropdown">
-            <button class="mobile-dropdown-btn flex items-center justify-between w-full text-white text-lg py-3 border-b border-white/10 font-medium">
+            <button class="mobile-dropdown-btn w-full flex items-center justify-between text-white text-lg py-3 border-b border-white/10 font-medium" onclick="toggleMobileDropdown(this)">
                 Programs <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
             </button>
-            <div class="mobile-dropdown-menu pl-4 space-y-1">
+            <div class="mobile-dropdown-menu pl-4 space-y-1" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease;">
                 <a href="#programs" class="block text-white/70 text-base py-2">Community Development</a>
                 <a href="#programs" class="block text-white/70 text-base py-2">Youth Empowerment</a>
                 <a href="#programs" class="block text-white/70 text-base py-2">Education Support</a>
@@ -515,10 +525,10 @@
 
         <!-- Reports dropdown -->
         <div class="mobile-dropdown">
-            <button class="mobile-dropdown-btn flex items-center justify-between w-full text-white text-lg py-3 border-b border-white/10 font-medium">
+            <button class="mobile-dropdown-btn w-full flex items-center justify-between text-white text-lg py-3 border-b border-white/10 font-medium" onclick="toggleMobileDropdown(this)">
                 Reports <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
             </button>
-            <div class="mobile-dropdown-menu pl-4 space-y-1">
+            <div class="mobile-dropdown-menu pl-4 space-y-1" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease;">
                 <a href="#reports" class="block text-white/70 text-base py-2">Annual Reports</a>
                 <a href="#reports" class="block text-white/70 text-base py-2">Financial Reports</a>
                 <a href="#reports" class="block text-white/70 text-base py-2">Project Reports</a>
@@ -1144,178 +1154,129 @@
 
 <!-- ==================== SCRIPTS ==================== -->
 <script>
-    (function() {
-        // Sticky Navigation
-        const mainNav = document.getElementById('mainNav');
-        const topBarHeight = 37;
+(function() {
+    // Sticky Navigation
+    const mainNav = document.getElementById('mainNav');
+    const topBarHeight = 37;
+    function updateNav() {
+        const scrollY = window.scrollY;
+        const isMobile = window.innerWidth < 1024;
+        mainNav.style.top = (scrollY > 80 || isMobile) ? '0' : topBarHeight + 'px';
+        mainNav.classList.toggle('glass-dark', scrollY > 80);
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    window.addEventListener('resize', updateNav);
+    updateNav();
 
-        function updateNav() {
-            const scrollY = window.scrollY;
-            const isMobile = window.innerWidth < 1024;
-            if (scrollY > 80) {
-                mainNav.classList.add('glass-dark');
-                mainNav.style.top = '0';
-            } else {
-                mainNav.classList.remove('glass-dark');
-                mainNav.style.top = isMobile ? '0' : topBarHeight + 'px';
-            }
-        }
-        window.addEventListener('scroll', updateNav, { passive: true });
-        window.addEventListener('resize', updateNav);
-        updateNav();
+    // Mobile Menu Open / Close
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+        mobileMenuIcon.classList.toggle('fa-bars');
+        mobileMenuIcon.classList.toggle('fa-xmark');
+    });
 
-        // Mobile Menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuIcon = mobileMenuBtn.querySelector('i');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-            if (mobileMenu.classList.contains('open')) {
-                mobileMenuIcon.classList.remove('fa-bars');
-                mobileMenuIcon.classList.add('fa-xmark');
-            } else {
-                mobileMenuIcon.classList.remove('fa-xmark');
-                mobileMenuIcon.classList.add('fa-bars');
-            }
+    // Close mobile menu when a link inside is clicked (except dropdown buttons)
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            mobileMenuIcon.classList.add('fa-bars');
+            mobileMenuIcon.classList.remove('fa-xmark');
         });
+    });
 
-        // Mobile Dropdown accordion
-        document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.stopPropagation(); // prevent closing mobile menu immediately
-                const menu = this.nextElementSibling;
-                const isOpen = menu.classList.contains('open');
-
-                // Close all other open dropdowns first
-                document.querySelectorAll('.mobile-dropdown-menu.open').forEach(m => {
-                    if (m !== menu) m.classList.remove('open');
-                });
-                document.querySelectorAll('.mobile-dropdown-btn.open').forEach(b => {
-                    if (b !== this) b.classList.remove('open');
-                });
-
-                // Toggle current
-                if (!isOpen) {
-                    menu.classList.add('open');
-                    this.classList.add('open');
-                } else {
-                    menu.classList.remove('open');
-                    this.classList.remove('open');
-                }
-            });
-        });
-
-        // Close mobile menu when any normal link is clicked (not dropdown buttons)
-        mobileMenu.querySelectorAll('a:not(.mobile-dropdown-btn)').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                mobileMenuIcon.classList.remove('fa-xmark');
-                mobileMenuIcon.classList.add('fa-bars');
-            });
-        });
-
-        // Also close mobile menu when a submenu link is clicked
-        document.querySelectorAll('.mobile-dropdown-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                mobileMenuIcon.classList.remove('fa-xmark');
-                mobileMenuIcon.classList.add('fa-bars');
-            });
-        });
-
-        // Scroll Reveal
-        const revealElements = document.querySelectorAll('.reveal');
-        const imgRevealElements = document.querySelectorAll('.img-reveal');
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
-        revealElements.forEach(el => revealObserver.observe(el));
-        imgRevealElements.forEach(el => revealObserver.observe(el));
-
-        // Counter Animation
-        const counterElements = document.querySelectorAll('.counter');
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counter = entry.target;
-                    const target = parseInt(counter.getAttribute('data-target'));
-                    const duration = 2000;
-                    const startTime = performance.now();
-
-                    function animateCounter(currentTime) {
-                        const elapsed = currentTime - startTime;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const eased = 1 - Math.pow(1 - progress, 3);
-                        counter.textContent = Math.floor(eased * target) + '+';
-                        if (progress < 1) requestAnimationFrame(animateCounter);
-                        else counter.textContent = target + '+';
-                    }
-                    requestAnimationFrame(animateCounter);
-                    counterObserver.unobserve(counter);
-                }
-            });
-        }, { threshold: 0.5 });
-        counterElements.forEach(el => counterObserver.observe(el));
-
-        // Smooth Scroll (ignore dropdown toggles)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href === '#') return;
-                const target = document.querySelector(href);
-                if (target) {
-                    e.preventDefault();
-                    const navHeight = mainNav.offsetHeight;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
-                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Desktop dropdown touch support (keep for hybrid devices)
-        document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
-            const menu = trigger.querySelector('.dropdown-menu');
-            const button = trigger.querySelector('button');
-            if (button && menu) {
-                button.addEventListener('click', (e) => {
-                    if (window.innerWidth < 1024) {
-                        e.preventDefault();
-                        menu.classList.toggle('active');
-                    }
-                });
-                document.addEventListener('click', (e) => {
-                    if (!trigger.contains(e.target)) menu.classList.remove('active');
-                });
+    // Scroll Reveal
+    const revealElements = document.querySelectorAll('.reveal');
+    const imgRevealElements = document.querySelectorAll('.img-reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
             }
         });
+    }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
+    revealElements.forEach(el => revealObserver.observe(el));
+    imgRevealElements.forEach(el => revealObserver.observe(el));
 
-        // Form submission
-        const form = document.querySelector('form');
-        if (form) {
-            form.addEventListener('submit', function(e) {
+    // Counter Animation
+    const counterElements = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const startTime = performance.now();
+                function animateCounter(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    counter.textContent = Math.floor((1 - Math.pow(1 - progress, 3)) * target) + '+';
+                    if (progress < 1) requestAnimationFrame(animateCounter);
+                    else counter.textContent = target + '+';
+                }
+                requestAnimationFrame(animateCounter);
+                counterObserver.unobserve(counter);
+            }
+        });
+    }, { threshold: 0.5 });
+    counterElements.forEach(el => counterObserver.observe(el));
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            const target = document.querySelector(href);
+            if (target) {
                 e.preventDefault();
-                const btn = form.querySelector('button[type="submit"]');
-                const originalHTML = btn.innerHTML;
-                btn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
-                btn.classList.add('bg-forest');
-                setTimeout(() => {
-                    btn.innerHTML = originalHTML;
-                    btn.classList.remove('bg-forest');
-                    form.reset();
-                }, 2500);
-            });
-        }
+                const navHeight = mainNav.offsetHeight;
+                window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20, behavior: 'smooth' });
+            }
+        });
+    });
 
-        console.log('%c🌍 Junubia 64 Organization %c| %cOfficial Website',
-            'font-family: "Playfair Display", serif; font-size: 20px; color: #D4A017; font-weight: bold;',
-            '', 'font-family: Inter, sans-serif; font-size: 12px; color: #06283D;');
-    })();
+    // Desktop dropdowns (for large screens only)
+    document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
+        const menu = trigger.querySelector('.dropdown-menu');
+        trigger.addEventListener('mouseenter', () => menu && menu.classList.add('active'));
+        trigger.addEventListener('mouseleave', () => menu && menu.classList.remove('active'));
+    });
+
+    // Form submission
+    const form = document.querySelector('form');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            btn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
+            btn.classList.add('bg-forest');
+            setTimeout(() => {
+                btn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane text-xs"></i>';
+                btn.classList.remove('bg-forest');
+                form.reset();
+            }, 2500);
+        });
+    }
+})();
+</script>
+    <script>
+function toggleMobileDropdown(button) {
+    const menu = button.nextElementSibling;
+    const isOpen = menu.classList.contains('open');
+    // Close all other open dropdowns
+    document.querySelectorAll('.mobile-dropdown-menu.open').forEach(m => {
+        if (m !== menu) m.classList.remove('open');
+    });
+    document.querySelectorAll('.mobile-dropdown-btn.open').forEach(b => {
+        if (b !== button) b.classList.remove('open');
+    });
+    // Toggle current
+    menu.classList.toggle('open');
+    button.classList.toggle('open');
+}
 </script>
 </body>
 </html>
