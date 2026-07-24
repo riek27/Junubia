@@ -242,6 +242,25 @@
             color: #06283D;
         }
 
+        /* Smooth open/close for mobile submenus */
+.mobile-dropdown-menu {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+.mobile-dropdown-menu.open {
+    max-height: 400px;  /* enough to show all items */
+}
+
+/* Rotate the chevron icon when open */
+.mobile-dropdown-btn i {
+    transition: transform 0.3s ease;
+}
+.mobile-dropdown-btn.open i {
+    transform: rotate(180deg);
+}
+
         /* Input focus */
         input:focus,
         textarea:focus,
@@ -274,6 +293,16 @@
         .mobile-menu.open {
             transform: translateX(0);
         }
+
+        /* Ensure images are always visible on small screens */
+@media (max-width: 767px) {
+    .img-reveal {
+        clip-path: inset(0 0% 0 0) !important;   /* force visible */
+        transition: none;                         /* disable animation on mobile */
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
 
         /* Report card */
         .report-card {
@@ -431,19 +460,60 @@
 
     <!-- Mobile Menu Panel -->
     <div id="mobileMenu" class="mobile-menu fixed inset-0 z-40 bg-navy/98 backdrop-blur-xl flex flex-col pt-24 px-8 lg:hidden">
-        <div class="flex flex-col gap-1 overflow-y-auto max-h-[80vh]">
-            <a href="#" class="text-white text-lg py-3 border-b border-white/10 font-medium">Home</a>
-            <a href="#about" class="text-white text-lg py-3 border-b border-white/10 font-medium">About</a>
-            <a href="#programs" class="text-white text-lg py-3 border-b border-white/10 font-medium">Programs</a>
-            <a href="#impact" class="text-white text-lg py-3 border-b border-white/10 font-medium">Impact</a>
-            <a href="#partners" class="text-white text-lg py-3 border-b border-white/10 font-medium">Partners</a>
-            <a href="#" class="text-white text-lg py-3 border-b border-white/10 font-medium" onclick="event.preventDefault()">Team</a>
-            <a href="#reports" class="text-white text-lg py-3 border-b border-white/10 font-medium">Reports</a>
-            <a href="#careers" class="text-white text-lg py-3 border-b border-white/10 font-medium">Careers</a>
-            <a href="#contact" class="text-white text-lg py-3 border-b border-white/10 font-medium">Contact</a>
-            <a href="#donate" class="bg-gold text-navy font-semibold px-6 py-3 rounded-full text-center mt-6 text-lg">Donate Now</a>
+    <div class="flex flex-col gap-1 overflow-y-auto max-h-[80vh]">
+        <a href="#" class="text-white text-lg py-3 border-b border-white/10 font-medium">Home</a>
+
+        <!-- About dropdown (mobile) -->
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn flex items-center justify-between w-full text-white text-lg py-3 border-b border-white/10 font-medium">
+                About <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+            </button>
+            <div class="mobile-dropdown-menu hidden pl-4 space-y-1 pb-2">
+                <a href="#about" class="block text-white/70 text-base py-2">Our Story</a>
+                <a href="#about" class="block text-white/70 text-base py-2">Mission & Vision</a>
+                <a href="#about" class="block text-white/70 text-base py-2">Our Values</a>
+                <a href="#" class="block text-white/70 text-base py-2">Leadership</a>
+            </div>
         </div>
+
+        <!-- Programs dropdown (mobile) -->
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn flex items-center justify-between w-full text-white text-lg py-3 border-b border-white/10 font-medium">
+                Programs <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+            </button>
+            <div class="mobile-dropdown-menu hidden pl-4 space-y-1 pb-2">
+                <a href="#programs" class="block text-white/70 text-base py-2">Community Development</a>
+                <a href="#programs" class="block text-white/70 text-base py-2">Youth Empowerment</a>
+                <a href="#programs" class="block text-white/70 text-base py-2">Education Support</a>
+                <a href="#programs" class="block text-white/70 text-base py-2">Humanitarian Assistance</a>
+                <a href="#programs" class="block text-white/70 text-base py-2">Social Development</a>
+                <a href="#programs" class="block text-white/70 text-base py-2">Advocacy & Engagement</a>
+            </div>
+        </div>
+
+        <a href="#impact" class="text-white text-lg py-3 border-b border-white/10 font-medium">Impact</a>
+        <a href="#partners" class="text-white text-lg py-3 border-b border-white/10 font-medium">Partners</a>
+        <a href="#" class="text-white text-lg py-3 border-b border-white/10 font-medium" onclick="event.preventDefault()">Team</a>
+
+        <!-- Reports dropdown (mobile) -->
+        <div class="mobile-dropdown">
+            <button class="mobile-dropdown-btn flex items-center justify-between w-full text-white text-lg py-3 border-b border-white/10 font-medium">
+                Reports <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+            </button>
+            <div class="mobile-dropdown-menu hidden pl-4 space-y-1 pb-2">
+                <a href="#reports" class="block text-white/70 text-base py-2">Annual Reports</a>
+                <a href="#reports" class="block text-white/70 text-base py-2">Financial Reports</a>
+                <a href="#reports" class="block text-white/70 text-base py-2">Project Reports</a>
+                <a href="#reports" class="block text-white/70 text-base py-2">Strategic Plans</a>
+                <a href="#reports" class="block text-white/70 text-base py-2">Publications</a>
+            </div>
+        </div>
+
+        <a href="#careers" class="text-white text-lg py-3 border-b border-white/10 font-medium">Careers</a>
+        <a href="#contact" class="text-white text-lg py-3 border-b border-white/10 font-medium">Contact</a>
+        <a href="#donate" class="bg-gold text-navy font-semibold px-6 py-3 rounded-full text-center mt-6 text-lg">Donate Now</a>
     </div>
+</div>
 
    <!-- ==================== HERO SECTION ==================== -->
 <section class="relative min-h-screen flex items-center overflow-hidden bg-navy">
@@ -1044,7 +1114,7 @@
             </div>
         </div>
         <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p class="text-white/40 text-xs">&copy; 2024 Junubia 64 Organization. All rights reserved. A registered non-governmental and non-profit organization in South Sudan.</p>
+            <p class="text-white/40 text-xs">&copy; 2026 Junubia 64 Organization. All rights reserved. A registered non-governmental and non-profit organization in South Sudan.</p>
             <div class="flex gap-4 text-white/40 text-xs">
                 <a href="#" class="hover:text-gold transition-colors">Privacy Policy</a>
                 <a href="#" class="hover:text-gold transition-colors">Terms of Use</a>
@@ -1093,6 +1163,30 @@
                 mobileMenuBtn.querySelector('i').classList.add('fa-bars');
             });
         });
+
+        // Mobile dropdown toggle
+document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const menu = btn.nextElementSibling;
+        const isOpen = menu.classList.contains('open');
+        // Close all other open menus first
+        document.querySelectorAll('.mobile-dropdown-menu.open').forEach(m => m.classList.remove('open'));
+        document.querySelectorAll('.mobile-dropdown-btn.open').forEach(b => b.classList.remove('open'));
+        if (!isOpen) {
+            menu.classList.add('open');
+            btn.classList.add('open');
+        }
+    });
+});
+
+// Close mobile menu when a submenu link is clicked
+document.querySelectorAll('.mobile-dropdown-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.remove('open');
+        document.querySelector('#mobileMenuBtn i').classList.remove('fa-xmark');
+        document.querySelector('#mobileMenuBtn i').classList.add('fa-bars');
+    });
+});
 
         // Scroll Reveal
         const revealElements = document.querySelectorAll('.reveal');
