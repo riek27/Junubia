@@ -178,6 +178,37 @@
                     rgba(6, 40, 61, 0.4) 100%);
         }
 
+        /* Premium logo image container */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;          /* matches the original icon size */
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* The logo image itself */
+.logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* ensures image fills the circle without distortion */
+  border-radius: 12px;
+  display: block;
+}
+
+/* Hover effect to keep it interactive */
+.logo-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(212, 160, 23, 0.25);
+  background: rgba(255, 255, 255, 0.25);
+}
+
         /* Impact section overlay */
         .overlay-impact {
             background: rgba(6, 40, 61, 0.45);
@@ -321,14 +352,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="flex items-center justify-between py-4">
                 <a href="#" class="flex items-center gap-3 z-50">
-                    <div class="w-11 h-11 bg-gold rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg">
-                        <span class="font-display font-bold text-navy text-lg leading-none">J64</span>
-                    </div>
-                    <div class="hidden sm:block">
-                        <span class="font-display font-semibold text-white text-lg leading-tight block">Junubia 64</span>
-                        <span class="text-white/70 text-[10px] tracking-widest uppercase">Organization</span>
-                    </div>
-                </a>
+  <div class="logo-container">
+    <img src="assets/junublogo.jpg" alt="Junubia 64 Organization" class="logo-image" />
+  </div>
+  <!-- Optional: Keep the text next to the logo for clarity -->
+  <div class="hidden sm:block">
+    <span class="font-display font-semibold text-white text-lg leading-tight block">Junubia 64</span>
+    <span class="text-white/70 text-[10px] tracking-widest uppercase">Organization</span>
+  </div>
+</a>
                 <div class="hidden lg:flex items-center gap-1">
                     <a href="#" class="text-white/90 hover:text-gold px-3 py-2 text-sm font-medium transition-colors duration-300">Home</a>
                     <div class="dropdown-trigger relative">
