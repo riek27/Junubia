@@ -1146,47 +1146,65 @@
         window.addEventListener('resize', updateNav);
         updateNav();
 
-        // Mobile Menu
+        // Mobile Menu toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-        const mobileLinks = mobileMenu.querySelectorAll('a');
+        const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('open');
-            const icon = mobileMenuBtn.querySelector('i');
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-xmark');
+            if (mobileMenu.classList.contains('open')) {
+                mobileMenuIcon.classList.remove('fa-bars');
+                mobileMenuIcon.classList.add('fa-xmark');
+            } else {
+                mobileMenuIcon.classList.remove('fa-xmark');
+                mobileMenuIcon.classList.add('fa-bars');
+            }
         });
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                mobileMenuBtn.querySelector('i').classList.remove('fa-xmark');
-                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+
+        // Mobile Dropdown accordion
+        document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation(); // prevent closing mobile menu immediately
+                const menu = this.nextElementSibling;
+                const isOpen = menu.classList.contains('open');
+
+                // Close all other open dropdowns first
+                document.querySelectorAll('.mobile-dropdown-menu.open').forEach(m => {
+                    if (m !== menu) m.classList.remove('open');
+                });
+                document.querySelectorAll('.mobile-dropdown-btn.open').forEach(b => {
+                    if (b !== this) b.classList.remove('open');
+                });
+
+                // Toggle current
+                if (!isOpen) {
+                    menu.classList.add('open');
+                    this.classList.add('open');
+                } else {
+                    menu.classList.remove('open');
+                    this.classList.remove('open');
+                }
             });
         });
 
-        // Mobile dropdown toggle
-document.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const menu = btn.nextElementSibling;
-        const isOpen = menu.classList.contains('open');
-        // Close all other open menus first
-        document.querySelectorAll('.mobile-dropdown-menu.open').forEach(m => m.classList.remove('open'));
-        document.querySelectorAll('.mobile-dropdown-btn.open').forEach(b => b.classList.remove('open'));
-        if (!isOpen) {
-            menu.classList.add('open');
-            btn.classList.add('open');
-        }
-    });
-});
+        // Close mobile menu when any normal link is clicked (not dropdown buttons)
+        mobileMenu.querySelectorAll('a:not(.mobile-dropdown-btn)').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                mobileMenuIcon.classList.remove('fa-xmark');
+                mobileMenuIcon.classList.add('fa-bars');
+            });
+        });
 
-// Close mobile menu when a submenu link is clicked
-document.querySelectorAll('.mobile-dropdown-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-        document.getElementById('mobileMenu').classList.remove('open');
-        document.querySelector('#mobileMenuBtn i').classList.remove('fa-xmark');
-        document.querySelector('#mobileMenuBtn i').classList.add('fa-bars');
-    });
-});
+        // Also close mobile menu when a submenu link is clicked
+        document.querySelectorAll('.mobile-dropdown-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                mobileMenuIcon.classList.remove('fa-xmark');
+                mobileMenuIcon.classList.add('fa-bars');
+            });
+        });
 
         // Scroll Reveal
         const revealElements = document.querySelectorAll('.reveal');
@@ -1227,7 +1245,7 @@ document.querySelectorAll('.mobile-dropdown-menu a').forEach(link => {
         }, { threshold: 0.5 });
         counterElements.forEach(el => counterObserver.observe(el));
 
-        // Smooth Scroll
+        // Smooth Scroll (ignore dropdown toggles)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -1236,38 +1254,40 @@ document.querySelectorAll('.mobile-dropdown-menu a').forEach(link => {
                 if (target) {
                     e.preventDefault();
                     const navHeight = mainNav.offsetHeight;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset -
-                        navHeight - 20;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
                     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
                 }
             });
         });
 
-        // Dropdown touch
+        // Desktop dropdown touch support (keep for hybrid devices)
         document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
             const menu = trigger.querySelector('.dropdown-menu');
-            trigger.querySelector('button').addEventListener('click', (e) => {
-                if (window.innerWidth < 1024) {
-                    e.preventDefault();
-                    menu.classList.toggle('active');
-                }
-            });
-            document.addEventListener('click', (e) => {
-                if (!trigger.contains(e.target)) menu.classList.remove('active');
-            });
+            const button = trigger.querySelector('button');
+            if (button && menu) {
+                button.addEventListener('click', (e) => {
+                    if (window.innerWidth < 1024) {
+                        e.preventDefault();
+                        menu.classList.toggle('active');
+                    }
+                });
+                document.addEventListener('click', (e) => {
+                    if (!trigger.contains(e.target)) menu.classList.remove('active');
+                });
+            }
         });
 
-        // Form
+        // Form submission
         const form = document.querySelector('form');
         if (form) {
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const btn = form.querySelector('button[type="submit"]');
+                const originalHTML = btn.innerHTML;
                 btn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
                 btn.classList.add('bg-forest');
                 setTimeout(() => {
-                    btn.innerHTML =
-                        'Send Message <i class="fa-solid fa-paper-plane text-xs"></i>';
+                    btn.innerHTML = originalHTML;
                     btn.classList.remove('bg-forest');
                     form.reset();
                 }, 2500);
