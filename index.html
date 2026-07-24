@@ -170,25 +170,25 @@
         }
 
         /* Hero overlay – brighter for image visibility */
-/* Improved overlay – slightly darker on the text side, lighter on the right */
+/* Overlay that concentrates darkness on the left side where text lives */
 .overlay-hero {
     background: linear-gradient(
         135deg,
-        rgba(6, 40, 61, 0.55) 0%,
-        rgba(6, 40, 61, 0.35) 30%,
-        rgba(27, 94, 69, 0.15) 60%,
-        rgba(6, 40, 61, 0.25) 100%
+        rgba(6, 40, 61, 0.7) 0%,       /* noticeably darker behind headline */
+        rgba(6, 40, 61, 0.45) 35%,      /* gradually lightens */
+        rgba(27, 94, 69, 0.1) 65%,      /* barely any overlay */
+        rgba(6, 40, 61, 0.15) 100%      /* very light on the far right */
     );
 }
 
-/* Makes the main headline pop without darkening the whole image */
+/* Stronger, deeper text shadow for the headline */
 .hero-headline {
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 6px 24px rgba(0, 0, 0, 0.55), 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Gentle shadow for the subtitle */
+/* Stronger subtitle shadow */
 .hero-subtitle {
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
         /* Premium logo image container */
 .logo-container {
@@ -927,10 +927,6 @@
                         <div class="flex items-start gap-4">
                             <div class="w-11 h-11 bg-forest/15 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-envelope text-forest"></i></div>
                             <div><h4 class="font-semibold text-navy">Email</h4><p class="text-gray-500 text-sm">info@junubia64.org</p></div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <div class="w-11 h-11 bg-forest/15 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fa-brands fa-facebook-f text-forest"></i></div>
-                            <div><h4 class="font-semibold text-navy">Facebook</h4><p class="text-gray-500 text-sm">junubia64@gmail.com</p></div>
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="w-11 h-11 bg-navy/10 rounded-xl flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-phone text-navy"></i></div>
